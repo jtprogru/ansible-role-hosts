@@ -20,6 +20,9 @@ Example playbook:
   hosts: all
   become: true
 
+  vars:
+    hosts_backup: true
+
   roles:
     - jtprogru.hosts
 ```
