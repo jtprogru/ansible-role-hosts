@@ -22,6 +22,3 @@
 
   roles:
     - role: jtprogru.hosts
-      vars:
-        base_soft_list_extra:
-          - ansible
