@@ -1,2 +1,7 @@
 ---
-hosts_backup: true
+# Backup flag
+# hosts_backup: true
+# Path to hosts file
+# hosts_file: '/etc/hosts'
+# Path to backup hosts file
+# hosts_file_backup: '/etc/hosts.ansible_backup.{{ ansible_date_time.epoch }}"'
