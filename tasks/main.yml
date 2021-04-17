@@ -1,0 +1,25 @@
+---
+
+- name: "hosts | include OS-specific variables."
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: "hosts | set facts hosts_file."
+  set_fact:
+    hosts_file: "{{ __hosts_file }}"
+
+- name: "hosts | set facts hosts_file_backup."
+  set_fact:
+    hosts_file_backup: "{{ __hosts_file_backup }}"
+
+- name: "hosts | backup original hosts file"
+  command: cp {{ host_file }} {{ hosts_file_backup }}
+
+- name: "hosts | generate new hosts file"
+  template:
+    src: hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+  backup: true
+  become: true

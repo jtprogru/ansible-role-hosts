@@ -1,0 +1,3 @@
+---
+__hosts_file: '/etc/hosts'
+__hosts_file_backup: '/etc/hosts.ansible'
