@@ -2,6 +2,7 @@
 - name: Converge
   hosts: all
   become: true
+  debugger: always
 
   pre_tasks:
     - name: Update apt cache.
@@ -22,6 +23,3 @@
 
   roles:
     - role: jtprogru.hosts
-      vars:
-        base_soft_list_extra:
-          - ansible
