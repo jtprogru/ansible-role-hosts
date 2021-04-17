@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   role_name: hosts
+  namespace: jtprogru
   author: Michael Savin
   description: Ansible role for manage /etc/hosts file
   company: SysOps
