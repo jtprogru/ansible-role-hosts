@@ -13,6 +13,7 @@
 
 - name: "hosts | backup original hosts file"
   command: cp {{ host_file }} {{ hosts_file_backup }}
+  when: hosts_backup
 
 - name: "hosts | generate new hosts file"
   template:
