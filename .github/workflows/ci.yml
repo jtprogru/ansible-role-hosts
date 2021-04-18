@@ -13,8 +13,8 @@ defaults:
 jobs:
   lint:
     name: Lint
-    # runs-on: ubuntu-20.04
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
+    # runs-on: self-hosted
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -40,7 +40,8 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
+    # runs-on: self-hosted
     strategy:
       matrix:
         distro:
