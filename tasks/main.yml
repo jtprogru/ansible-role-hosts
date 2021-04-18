@@ -7,7 +7,13 @@
   set_fact:
     hosts_file: "{{ __hosts_file }}"
 
-- name: "hosts | generate new hosts file"
+- name: "hosts | set internal IP."
+  set_fact:
+    main_internal_ipv4: "{{ item }}"
+  when: "{{ host_prefix | ansible.netcommon.network_in_usable( item ) }}"
+  with_items: "{{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'] }}"
+
+- name: "hosts | generate new hosts file."
   template:
     src: hosts.j2
     dest: "{{ hosts_file }}"
@@ -16,3 +22,4 @@
     mode: 0644
     backup: true
   become: true
+
