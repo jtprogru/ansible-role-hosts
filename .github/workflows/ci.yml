@@ -10,10 +10,8 @@ defaults:
   run:
     working-directory: 'jtprogru.hosts'
 
-runs-on: self-hosted
-
 jobs:
-
+  runs-on: self-hosted
   lint:
     name: Lint
     runs-on: ubuntu-20.04
