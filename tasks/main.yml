@@ -7,14 +7,10 @@
   set_fact:
     hosts_file: "{{ __hosts_file }}"
 
-- name: "hosts | set facts hosts_file_backup."
-  set_fact:
-    hosts_file_backup: "{{ __hosts_file_backup }}"
-
 - name: "hosts | generate new hosts file"
   template:
     src: hosts.j2
-    dest: /etc/hosts
+    dest: "{{ hosts_file }}"
     owner: root
     group: root
     mode: 0644
