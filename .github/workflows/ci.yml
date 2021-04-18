@@ -30,7 +30,10 @@ jobs:
         run: pip3 install --upgrade pip
 
       - name: Install test dependencies.
-        run: pip3 install yamllint ansible-lint ansible netaddr
+        run: pip3 install yamllint ansible-lint ansible
+
+      - name: Install netaddr
+        run: sudo apt install --no-install-recommends ieee-data python3-netaddr
 
       - name: Lint code with yamllint.
         run: yamllint .
