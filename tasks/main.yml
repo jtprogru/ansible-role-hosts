@@ -1,5 +1,24 @@
 ---
 
+- name: "hosts | install dbus on Debian."
+  apt:
+    name: dbus
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: "hosts | configure Redhat."
+  yum:
+    name: libselinux-python
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: "hosts | Update sysconfig on Redhat."
+  lineinfile:
+    dest: /etc/sysconfig/network
+    line: "HOSTNAME={{ inventory_hostname }}"
+    regexp: "HOSTNAME="
+  when: ansible_os_family == 'RedHat'
+
 - name: "hosts | include OS-specific variables."
   include_vars: "{{ ansible_os_family }}.yml"
 
@@ -12,6 +31,17 @@
     main_internal_ipv4: "{{ item }}"
   when: host_prefix | ansible.netcommon.network_in_usable( item )
   with_items: "{{ hostvars[inventory_hostname]['ansible_all_ipv4_addresses'] }}"
+
+- name: "hosts | set hostname with hostname command."
+  hostname:
+    name: "{{ inventory_hostname }}"
+  notify:
+    - restart hostname
+    - restart systemd-logind
+
+- name: "hosts | re-gather facts."
+  action: setup
+  when: ansible_hostname != inventory_hostname
 
 - name: "hosts | generate new hosts file."
   template:
