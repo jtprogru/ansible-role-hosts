@@ -71,6 +71,9 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install ansible molecule 'molecule[docker]' docker
 
+      - name: Install netaddr
+        run: sudo apt install --no-install-recommends ieee-data python3-netaddr
+
       - name: Run Molecule tests.
         run: molecule test
         env:
