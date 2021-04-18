@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   become: true
-  debugger: always
+  # debugger: always
 
   pre_tasks:
     - name: Update apt cache.
