@@ -10,6 +10,8 @@ defaults:
   run:
     working-directory: 'jtprogru.hosts'
 
+runs-on: self-hosted
+
 jobs:
 
   lint:
