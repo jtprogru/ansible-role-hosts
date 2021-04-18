@@ -1,7 +1,11 @@
 ###############
 # {{ ansible_managed }}
 ###############
+{% if ansible_eth1 %}
 {{ ansible_eth1['ipv4']['address'] }} {{ inventory_hostname }}
+{% else %}
+{{ ansible_eth0['ipv4']['address'] }} {{ inventory_hostname }}
+{% endif %}
 127.0.0.1 localhost
 127.0.1.1   {{ inventory_hostname}}
 ::1         localhost ip6-localhost ip6-loopback
