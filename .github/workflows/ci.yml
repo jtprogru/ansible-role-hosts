@@ -11,10 +11,10 @@ defaults:
     working-directory: 'jtprogru.hosts'
 
 jobs:
-  runs-on: self-hosted
   lint:
     name: Lint
-    runs-on: ubuntu-20.04
+    # runs-on: ubuntu-20.04
+    runs-on: self-hosted
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
         distro:
