@@ -20,6 +20,9 @@ Example playbook:
   hosts: all
   become: true
 
+  vars:
+    host_prefix: '10.110.0.0/24'
+
   roles:
     - jtprogru.hosts
 ```

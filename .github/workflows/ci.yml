@@ -11,10 +11,10 @@ defaults:
     working-directory: 'jtprogru.hosts'
 
 jobs:
-
   lint:
     name: Lint
     runs-on: ubuntu-20.04
+    # runs-on: self-hosted
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
@@ -32,6 +32,9 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install yamllint ansible-lint ansible
 
+      - name: Install netaddr
+        run: sudo apt install --no-install-recommends ieee-data python3-netaddr
+
       - name: Lint code with yamllint.
         run: yamllint .
 
@@ -40,7 +43,8 @@ jobs:
 
   molecule:
     name: Molecule
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    # runs-on: self-hosted
     strategy:
       matrix:
         distro:
@@ -65,10 +69,13 @@ jobs:
         run: pip3 install --upgrade pip
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker
+        run: pip3 install ansible molecule 'molecule[docker]' docker
+
+      - name: Install netaddr
+        run: sudo apt install --no-install-recommends ieee-data python3-netaddr
 
       - name: Run Molecule tests.
-        run: molecule --debug test
+        run: molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'

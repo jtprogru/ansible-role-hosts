@@ -1,13 +1,29 @@
+###############
 # {{ ansible_managed }}
+###############
+# Your system has configured 'manage_etc_hosts' as True.
+# As a result, if you wish for changes to this file to persist
+# then you will need to either
+# a.) make changes to the master file in /etc/cloud/templates/hosts.debian.tmpl
+# b.) change or remove the value of 'manage_etc_hosts' in
+#     /etc/cloud/cloud.cfg or cloud-config from user-data
+#
 127.0.1.1   {{ inventory_hostname}}
-127.0.0.1   localhost
+{% if main_internal_ipv4 is defined %}
+{{ main_internal_ipv4 }} {{ inventory_hostname }}
+{% else %}
+{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}  {{ inventory_hostname }}
+{% endif %}
+127.0.0.1 localhost
 ::1         localhost ip6-localhost ip6-loopback
 
-# The following lines are desirable for IPv6 capable hosts.
-fe00::0     ip6-localnet
-ff00::0     ip6-mcastprefix
-ff02::1     ip6-allnodes
-ff02::2     ip6-allrouters
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
 
 # Network nodes as generated through Ansible.
 {% for host in play_hosts %}
