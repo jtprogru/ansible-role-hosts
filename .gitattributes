@@ -1,17 +1,5 @@
-*.*     text eol=lf
-*.md    text eol=lf
-*.yml   text eol=lf
-*.yaml  text eol=lf
-
-*.md              text
-LICENSE           text
-README            text
-.gitattributes    text
-
-*.*rc             text
-
 *.yaml linguist-language=YAML
 *.yml  linguist-language=YAML
 *.md   linguist-language=Markdown
-*.j2   linguist-language=Jinja2
+*.j2   linguist-language=Jinja
 
