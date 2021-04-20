@@ -13,4 +13,5 @@ README            text
 *.yaml linguist-language=YAML
 *.yml  linguist-language=YAML
 *.md   linguist-language=Markdown
+*.j2   linguist-language=Jinja2
 
