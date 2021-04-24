@@ -31,7 +31,7 @@ Example playbook:
 
 Michael Savin aka `@jtprogru`
 
-Twitter: [![Twitter Follow](https://img.shields.io/twitter/follow/jtprogruru?color=gree&style=plastic)](https://twitter.com/jtprogru/)
+Twitter: [![Twitter Follow](https://img.shields.io/twitter/follow/jtprogru?color=gree&style=plastic)](https://twitter.com/jtprogru/)
 
 ## License
 
