@@ -1,6 +1,10 @@
 # jtprogru.hosts
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-hosts/CI?label=CI) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-hosts/Release?label=Release) ![GitHub](https://img.shields.io/github/license/jtprogru/ansible-role-hosts) [![Ansible Role](https://img.shields.io/ansible/role/54364)](https://galaxy.ansible.com/jtprogru/hosts/)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-hosts/CI?label=CI)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jtprogru/ansible-role-hosts/Release?label=Release)
+![GitHub](https://img.shields.io/github/license/jtprogru/ansible-role-hosts)
+[![Ansible Role](https://img.shields.io/ansible/role/54364)](https://galaxy.ansible.com/jtprogru/hosts/)
+[![GitHub tag](https://img.shields.io/github/tag/jtprogru/ansible-role-hosts.svg)](https://github.com/jtprogru/ansible-role-hosts/tags)
 
 Simple role for manage `/etc/hosts` file.
 
